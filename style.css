@@ -172,6 +172,8 @@
   width: calc(100% - (200px * 2));
   max-width: 880px;
 
+  font-size: 0;
+
   margin: 0 auto;
 }
 
@@ -179,7 +181,10 @@
   list-style: none;
 
   display: grid;
-  grid-template-columns: minmax(224px, 282px) minmax(224px, 282px) minmax(224px, 282px);
+  grid-template-columns:
+    minmax(224px, 282px)
+    minmax(224px, 282px)
+    minmax(224px, 282px);
   column-gap: 17px;
   row-gap: 20px;
 
@@ -252,12 +257,14 @@
 }
 
 .places__like_disabled {
-  background-image: url('/images/like_disabled.svg');
+  background-image:
+    url('images/like_disabled.svg');
   background-repeat: no-repeat;
 }
 
 .places__like_active {
-  background-image: url('/images/like_active.svg');
+  background-image:
+    url('images/like_active.svg');
   background-repeat: no-repeat;
 }
 
