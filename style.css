@@ -260,3 +260,16 @@
   background-image: url('/images/like_active.svg');
   background-repeat: no-repeat;
 }
+
+.copyright {
+  width: calc(100% - (200px * 2));
+  max-width: 880px;
+
+  color: #545454;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  margin: 0 auto;
+  padding: 66px 0 60px 0;
+}
