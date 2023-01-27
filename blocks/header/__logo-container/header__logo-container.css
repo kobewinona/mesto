@@ -1,0 +1,26 @@
+.header__logo-container {
+  width: calc(100% - (27px * 2));
+  max-width: 320px;
+
+  margin: 28px auto 27px auto;
+}
+
+@media (min-width: 400px) {
+  .header__logo-container {
+    width: calc(100% - (40px * 2));
+    max-width: 824px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header__logo-container {
+    margin: 45px auto 37px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__logo-container {
+    width: calc(100% - (100px * 2));
+    max-width: 880px;
+  }
+}

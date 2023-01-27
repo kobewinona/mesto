@@ -1,0 +1,14 @@
+.profile__name {
+  font-weight: 500;
+  font-size: clamp(27px, 5vw, 42px);
+  line-height: clamp(33px, 6vw, 48px);
+  text-align: center;
+
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .profile__name {
+    text-align: left;
+  }
+}

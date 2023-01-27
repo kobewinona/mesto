@@ -1,0 +1,31 @@
+.footer__copyright {
+  width: calc(100% - (19px * 2));
+  max-width: 320px;
+
+  color: #545454;
+  font-weight: 400;
+  font-size: clamp(14px, 3.5vw, 18px);
+  line-height: clamp(18px, 4.5vw, 22px);
+
+  margin: 48px auto 36px auto;
+}
+
+@media (min-width: 400px) {
+  .footer__copyright {
+    width: calc(100% - (40px * 2));
+    max-width: 824px;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer__copyright {
+    margin: 66px auto 60px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__copyright {
+    width: calc(100% - (100px * 2));
+    max-width: 880px;
+  }
+}

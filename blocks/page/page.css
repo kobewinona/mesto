@@ -1,0 +1,15 @@
+.page {
+  color: #fff;
+  font-family: 'Inter', Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+
+  background-color: #000;
+
+  margin: 0;
+  padding: 0;
+}

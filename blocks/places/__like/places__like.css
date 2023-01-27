@@ -1,0 +1,26 @@
+.places__like {
+  min-width: 22px;
+  aspect-ratio: 22 / 19;
+
+  background-color: transparent;
+
+  cursor: pointer;
+  
+  border: none;
+
+  transition: .4s ease-out;
+  -webkit-transition: .4s ease-out;
+  -moz-transition: .4s ease-out;
+  -ms-transition: .4s ease-out;
+  -o-transition: .4s ease-out;
+}
+
+.places__like:hover {
+  opacity: .5;
+
+  transition: .2s ease-in;
+  -webkit-transition: .2s ease-in;
+  -moz-transition: .2s ease-in;
+  -ms-transition: .2s ease-in;
+  -o-transition: .2s ease-in;
+}

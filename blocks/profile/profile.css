@@ -1,0 +1,39 @@
+.profile {
+  width: calc(100% - (19px * 2));
+  max-width: 320px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 42px auto 36px auto;
+}
+
+@media (min-width: 400px) {
+  .profile {
+    width: calc(100% - (40px * 2));
+    max-width: 824px;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile {
+    flex-direction: row;
+    gap: 30px;
+
+    margin: 40px auto 50px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile {
+    width: calc(100% - (100px * 2));
+    max-width: 880px;
+
+    flex-direction: row;
+    gap: 30px;
+
+    margin: 40px auto 50px auto;
+  }
+}

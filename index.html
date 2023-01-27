@@ -5,20 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="vendor/normalize.css">
-  <link rel="stylesheet" href="fonts/Inter Web/inter.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/logo__white.svg" alt="Логотип">
+    <div class="header__logo-container">
+      <img class="header__logo" src="images/logo__white.svg" alt="Логотип сайта">
+    </div>
+    <div class="header__divider"></div>
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="images/avatar.webp" alt="">
+      <img class="profile__avatar" src="images/avatar.webp" alt="Изображение аватара профиля">
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <img class="profile__edit-button" src="images/edit-pict.svg" alt="Кнопка Редактировать">
+        <button class="profile__edit-button" aria-label="Кнопка Редактировать"></button>
         <p class="profile__description">Исследователь океана</p>
       </div>
       <button class="profile__add-button" aria-label="Кнопка Добавить"></button>
@@ -26,88 +27,88 @@
     <section class="places">
       <ul class="places__list">
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/karachaevsk_282x282.webp"
               alt="Фотография Карачаевска"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Карачаевск</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/elbrus_282x282.webp"
               alt="Фотография горы Эльбрус"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Гора Эльбрус</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/dombai_282x282.webp"
               alt="Фотография Домбая"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Домбай</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/shumash_282x282.webp"
               alt="Фотография Шумаши"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Шумашь</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/khibiny_282x282.webp"
               alt="Фотография Хибин"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Хибины</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
         <li>
-          <div class="places__place">
+          <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/kezenoiam_282x282.webp"
               alt="Фотография Кезенйама"
             >
-            <div class="places__place-description">
+            <figcaption class="places__place-caption">
               <p class="places__place-name">Кезенойам</p>
-              <div class="places__like places__like_disabled"></div>
-            </div>
-          </div>
+              <button class="places__like places__like_disabled"></button>
+            </figcaption>
+          </figure>
         </li>
       </ul>
     </section>
   </main>
   <footer class="footer">
-    <p class="copyright">&copy; 2023 Dima Klimkin</p>
+    <p class="footer__copyright">&copy; 2023 Dima Klimkin</p>
   </footer>
 </body>
 </html>

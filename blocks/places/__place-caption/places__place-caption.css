@@ -1,0 +1,9 @@
+.places__place-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 17px;
+  align-items: baseline;
+
+  padding: 25px 20px 25px 20px;
+}

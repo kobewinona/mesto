@@ -1,0 +1,16 @@
+.profile__description {
+  font-weight: 400;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: clamp(17px, 3.5vw, 22px);
+  text-align: center;
+
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .profile__description {
+    text-align: left;
+
+    grid-column: 1 / -1;
+  }
+}
