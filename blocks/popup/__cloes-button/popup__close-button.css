@@ -1,13 +1,20 @@
-.places__like {
-  min-width: 22px;
-  aspect-ratio: 22 / 19;
+.popup__close-button {
+  width: 20px;
+  height: 20px;
 
   cursor: pointer;
 
   background-color: transparent;
+  background-image: url('../../../images/popup__close-button.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
 
+  position: absolute;
+
+  top: -35px;
+  right: 0;
   border: none;
-  
+
   transition: opacity .4s ease-out;
   -webkit-transition: opacity .4s ease-out;
   -moz-transition: opacity .4s ease-out;
@@ -15,12 +22,22 @@
   -o-transition: opacity .4s ease-out;
 }
 
-.places__like:hover {
-  opacity: .5;
-
+.popup__close-button:hover {
+  opacity: .6;
+  
   transition: opacity .2s ease-in;
   -webkit-transition: opacity .2s ease-in;
   -moz-transition: opacity .2s ease-in;
   -ms-transition: opacity .2s ease-in;
   -o-transition: opacity .2s ease-in;
+}
+
+@media (min-width: 768px) {
+  .popup__close-button {
+    width: 32px;
+    height: 32px;
+
+    top: -40px;
+    right: -40px;
+  }
 }

@@ -1,0 +1,32 @@
+.popup__container {
+  width: calc(100% - (19px * 2));
+  max-width: 345px;
+
+  position: relative;
+
+  margin: 0 auto;
+}
+
+.popup__container::before {
+  content: "";
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  opacity: .5;
+  z-index: -1;
+}
+
+@media (min-width: 425px) {
+  .popup__container {
+    width: calc(100% - (40px * 2));
+    max-width: 430px;
+  }
+}
