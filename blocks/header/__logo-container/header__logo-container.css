@@ -1,11 +1,11 @@
 .header__logo-container {
   width: calc(100% - (27px * 2));
-  max-width: 320px;
+  max-width: 345px;
 
   margin: 28px auto 27px auto;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 425px) {
   .header__logo-container {
     width: calc(100% - (40px * 2));
     max-width: 824px;

@@ -3,6 +3,9 @@
   font-size: clamp(27px, 5vw, 42px);
   line-height: clamp(33px, 6vw, 48px);
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   margin: 0;
 }

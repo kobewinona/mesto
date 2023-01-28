@@ -1,6 +1,6 @@
 .profile {
   width: calc(100% - (19px * 2));
-  max-width: 320px;
+  max-width: 345px;
 
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   margin: 42px auto 36px auto;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 425px) {
   .profile {
     width: calc(100% - (40px * 2));
     max-width: 824px;

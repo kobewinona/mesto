@@ -1,6 +1,6 @@
 .footer__copyright {
   width: calc(100% - (19px * 2));
-  max-width: 320px;
+  max-width: 345px;
 
   color: #545454;
   font-weight: 400;
@@ -10,7 +10,7 @@
   margin: 48px auto 36px auto;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 425px) {
   .footer__copyright {
     width: calc(100% - (40px * 2));
     max-width: 824px;

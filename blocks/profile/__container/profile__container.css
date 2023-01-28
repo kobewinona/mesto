@@ -1,7 +1,7 @@
 .profile__container {
-  max-width: calc(100% - (30px * 2));
+  max-width: calc(100% - 60px);
   display: grid;
-  grid-template-columns: fit-content(100%) 1fr;
+  grid-template-columns: 100% 1fr;
   gap: 8px 10px;
   align-items: baseline;
 
@@ -12,6 +12,8 @@
 
 @media (min-width: 768px) {
   .profile__container {
+    max-width: none;
+
     grid-template-columns: auto 1fr;
     gap: 16px 18px;
 

@@ -1,6 +1,6 @@
 .header__divider {
   width: 100%;
-  max-width: 320px;
+  max-width: 345px;
   height: 1px;
 
   background-color: #545454;
@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 425px) {
   .header__divider {
     width: calc(100% - (40px * 2));
     max-width: 824px;
