@@ -23,16 +23,5 @@
       minmax(218px, 282px)
       minmax(218px, 282px)
       minmax(218px, 282px);
-    column-gap: 17px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .places__list {
-    grid-template-columns:
-      minmax(218px, 282px)
-      minmax(218px, 282px)
-      minmax(218px, 282px);
-    column-gap: 17px;
   }
 }
