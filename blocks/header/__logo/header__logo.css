@@ -1,11 +1,11 @@
 .header__logo {
-  max-width: 103.74px;
-  min-height: 24.4px;
+  width: 103.74px;
+  height: 24.4px;
 }
 
 @media (min-width: 768px) {
   .header__logo {
-    max-width: 142px;
+    width: 142px;
     aspect-ratio: 142 / 33;
   }
 }
