@@ -5,6 +5,8 @@
   cursor: pointer;
 
   background-color: transparent;
+  background-image: url('../../../images/like_disabled.svg');
+  background-repeat: no-repeat;
 
   border: none;
 
