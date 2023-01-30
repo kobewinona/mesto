@@ -1,12 +1,13 @@
 .profile__container {
   max-width: calc(100% - 60px);
+
   display: grid;
   grid-template-columns: 100% 1fr;
   gap: 8px 4px;
   align-items: baseline;
 
   flex-basis: 66%;
-
+  
   margin: 26px 0 0 0;
 }
 

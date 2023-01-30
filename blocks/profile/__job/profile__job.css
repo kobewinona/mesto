@@ -1,4 +1,4 @@
-.profile__description {
+.profile__job {
   font-weight: 400;
   font-size: clamp(14px, 2.5vw, 18px);
   line-height: clamp(17px, 3.5vw, 22px);
@@ -11,7 +11,7 @@
 }
 
 @media (min-width: 768px) {
-  .profile__description {
+  .profile__job {
     text-align: left;
   }
 }

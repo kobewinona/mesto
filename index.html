@@ -20,17 +20,17 @@
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" aria-label="Кнопка Редактировать"></button>
-        <p class="profile__description">Исследователь океана</p>
+        <p class="profile__job">Исследователь океана</p>
       </div>
       <button class="profile__add-button" aria-label="Кнопка Добавить"></button>
     </section>
-    <section class="places">
+    <section class="places" aria-label="Секция с фотографиями мест">
       <ul class="places__list">
         <li>
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/karachaevsk_282x282.webp"
+              src="images/places/karachaevsk_564x564.webp"
               alt="Фотография Карачаевска"
             >
             <figcaption class="places__place-caption">
@@ -43,7 +43,7 @@
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/elbrus_282x282.webp"
+              src="images/places/elbrus_564x564.webp"
               alt="Фотография горы Эльбрус"
             >
             <figcaption class="places__place-caption">
@@ -56,7 +56,7 @@
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/dombai_282x282.webp"
+              src="images/places/dombai_564x564.webp"
               alt="Фотография Домбая"
             >
             <figcaption class="places__place-caption">
@@ -69,7 +69,7 @@
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/shumash_282x282.webp"
+              src="images/places/shumash_564x564.webp"
               alt="Фотография Шумаши"
             >
             <figcaption class="places__place-caption">
@@ -82,7 +82,7 @@
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/khibiny_282x282.webp"
+              src="images/places/khibiny_564x564.webp"
               alt="Фотография Хибин"
             >
             <figcaption class="places__place-caption">
@@ -95,7 +95,7 @@
           <figure class="places__place">
             <img
               class="places__place-photo"
-              src="images/places/kezenoiam_282x282.webp"
+              src="images/places/kezenoiam_564x564.webp"
               alt="Фотография Кезенйама"
             >
             <figcaption class="places__place-caption">
@@ -110,17 +110,17 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Dima Klimkin</p>
   </footer>
-  <section class="popup">
+  <section class="popup" aria-label="Модальное окно редактирования профиля">
     <div class="popup__container">
       <button class="popup__close-button" aria-label="Кнопка Закрыть"></button>
-      <form class="popup__form" action="" method="get">
+      <form class="popup__form" method="get">
         <p class="popup__header">Редактировать профиль</p>
         <input class="popup__form-text" type="text" name="name" value="" maxlength="15" placeholder="Имя">
-        <input class="popup__form-text" type="text" name="description" value="" maxlength="20" placeholder="Описание">
+        <input class="popup__form-text" type="text" name="job" value="" maxlength="40" placeholder="Описание">
         <input class="popup__form-submit" type="submit" name="submit" value="Сохранить">
       </form>
     </div>
-    </div>
   </section>
+  <script src="scripts/index.js"></script>
 </body>
 </html>

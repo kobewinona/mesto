@@ -1,3 +1,13 @@
+@keyframes scaleUp {
+  from {scale: .5;}
+  to {scale: 1;}
+}
+
+@keyframes scaleDown {
+  from {scale: 1;}
+  to {scale: .5;}
+}
+
 .popup__container {
   width: calc(100% - (19px * 2));
   max-width: 345px;
@@ -5,23 +15,6 @@
   position: relative;
 
   margin: 0 auto;
-}
-
-.popup__container::before {
-  content: "";
-
-  width: 100vw;
-  height: 100vh;
-
-  background-color: #000;
-
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  opacity: .5;
-  z-index: -1;
 }
 
 @media (min-width: 425px) {
