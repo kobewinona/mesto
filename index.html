@@ -21,11 +21,11 @@
       <img class="profile__avatar" src="images/avatar.webp" alt="Изображение аватара профиля">
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <label for="edit-button" hidden>Кнопка "Редактировать профиль"</label>
+        <label for="edit-button" aria-hidden="false" hidden>Кнопка "Редактировать профиль"</label>
         <button class="profile__edit-button" id="edit-button"></button>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <label for="add-button" hidden>Кнопка "Добавить фотографию места"</label>
+      <label for="add-button" aria-hidden="false" hidden>Кнопка "Добавить фотографию места"</label>
       <button class="profile__add-button" id="add-button"></button>
     </section>
     <section class="places" aria-label="Секция с фотографиями мест">
@@ -39,7 +39,7 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Карачаевск</p>
-              <label for="like-button" hidden>Кнопка "Нравится"</label>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
               <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
@@ -53,7 +53,8 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Гора Эльбрус</p>
-              <button class="places__like"></button>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
+              <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
         </li>
@@ -66,7 +67,8 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Домбай</p>
-              <button class="places__like"></button>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
+              <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
         </li>
@@ -79,7 +81,8 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Шумашь</p>
-              <button class="places__like"></button>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
+              <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
         </li>
@@ -92,7 +95,8 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Хибины</p>
-              <button class="places__like"></button>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
+              <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
         </li>
@@ -105,7 +109,8 @@
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Кезенойам</p>
-              <button class="places__like"></button>
+              <label for="like-button" aria-hidden="false" hidden>Кнопка "Нравится"</label>
+              <button class="places__like" id="like-button"></button>
             </figcaption>
           </figure>
         </li>
@@ -117,11 +122,11 @@
   </footer>
   <section class="popup" aria-label="Модальное окно редактирования профиля">
     <div class="popup__container">
-      <label for="close-button" hidden>Кнопка "Закрыть"</label>
+      <label for="close-button" aria-hidden="false" hidden>Кнопка "Закрыть"</label>
       <button class="popup__close-button" id="close-button"></button>
       <form class="popup__form" method="get">
         <p class="popup__title">Редактировать профиль</p>
-        <label for="name-input" hidden>Поле "Имя"</label>
+        <label for="name-input" aria-hidden="false" hidden>Поле "Имя"</label>
         <input
           class="popup__form-text"
           id="name-input"
@@ -131,7 +136,7 @@
           maxlength="15"
           placeholder="Имя"
         >
-        <label for="job-input" hidden>Поле "Деятельность"</label>
+        <label for="job-input" aria-hidden="false" hidden>Поле "Деятельность"</label>
         <input
           class="popup__form-text"
           id="job-input"
@@ -141,7 +146,7 @@
           maxlength="40"
           placeholder="Описание"
         >
-        <label for="submit-input" hidden>Кнопка "Cохранить"</label>
+        <label for="submit-input" aria-hidden="false" hidden>Кнопка "Cохранить"</label>
         <input
           class="popup__form-submit"
           id="submit-input"
