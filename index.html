@@ -5,39 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="places of Russia">
-  <title>Mesto</title>
+  <title>Место</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <div class="header__logo-container">
-      <img class="header__logo" src="images/logo_white.svg" alt="Логотип сайта">
-    </div>
-    <div class="header__divider"></div>
+    <img class="header__logo" src="images/logo_white.svg" alt="Место Россия.">
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="images/avatar.webp" alt="Изображение аватара профиля">
+      <img class="profile__avatar" src="images/avatar.webp" alt="Аватар.">
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button" aria-label="Редактировать профиль"></button>
+        <button class="profile__edit-button" type="button" aria-label="Редактировать профиль."></button>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <button class="profile__add-button" aria-label="Добавить фотографию места"></button>
+      <button class="profile__add-button" type="button" aria-label="Добавить фотографию места."></button>
     </section>
-    <section class="places" aria-label="Секция с фотографиями мест">
+    <section class="places" aria-label="Секция с фотографиями мест России.">
       <ul class="places__list">
         <li>
           <figure class="places__place">
             <img
               class="places__place-photo"
               src="images/places/karachaevsk_564x564.webp"
-              alt="Фотография Карачаевска"
+              alt="Небольшой однокупольный Сентинский храм в Карачаево-Черкесии."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Карачаевск</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -46,11 +43,11 @@
             <img
               class="places__place-photo"
               src="images/places/elbrus_564x564.webp"
-              alt="Фотография горы Эльбрус"
+              alt="Гора Эльбрус издалека на рассвете."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Гора Эльбрус</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -59,11 +56,11 @@
             <img
               class="places__place-photo"
               src="images/places/dombai_564x564.webp"
-              alt="Фотография Домбая"
+              alt="Заснеженные горы в Домбае с кронами деревьев на переднем плане."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Домбай</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -72,11 +69,11 @@
             <img
               class="places__place-photo"
               src="images/places/shumash_564x564.webp"
-              alt="Фотография Шумаши"
+              alt="Рыбацкая деревня Шумашь с красными домами и маяком, окруженная водой."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Шумашь</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -85,11 +82,11 @@
             <img
               class="places__place-photo"
               src="images/places/khibiny_564x564.webp"
-              alt="Фотография Хибин"
+              alt="Горный массив Хибины в теплое время года с высоты птичьего полета."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Хибины</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -98,11 +95,11 @@
             <img
               class="places__place-photo"
               src="images/places/kezenoiam_564x564.webp"
-              alt="Фотография Кезенйама"
+              alt="Завальное озеро Кезенойам в зимнее время года с горами на заднем плане."
             >
             <figcaption class="places__place-caption">
               <p class="places__place-name">Кезенойам</p>
-              <button class="places__like" aria-label="Нравится"></button>
+              <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
         </li>
@@ -112,32 +109,30 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Dima Klimkin</p>
   </footer>
-  <section class="popup" aria-label="Модальное окно редактирования профиля">
+  <section class="popup" aria-label="Окно редактирования профиля.">
     <div class="popup__container">
-      <button class="popup__close-button" aria-label="Закрыть"></button>
-      <form class="popup__form" method="get">
-        <p class="popup__title">Редактировать профиль</p>
+      <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" method="get" name="edit-profile">
         <input
-          class="popup__form-text"
-          aria-label="Имя"
+          class="popup__form-text popup__form-text_name"
+          aria-label="Имя."
           type="text"
           name="name"
           value=""
-          maxlength="15"
           placeholder="Имя"
         >
         <input
-          class="popup__form-text"
-          aria-label="Деятельность"
+          class="popup__form-text popup__form-text_job"
+          aria-label="Деятельность."
           type="text"
           name="job"
           value=""
-          maxlength="40"
           placeholder="Описание"
         >
         <input
           class="popup__form-submit"
-          aria-label="Сохранить"
+          aria-label="Сохранить."
           type="submit"
           name="submit"
           value="Сохранить"

@@ -30,10 +30,5 @@
   .profile {
     width: calc(100% - (100px * 2));
     max-width: 880px;
-
-    flex-direction: row;
-    gap: 30px;
-
-    margin: 40px auto 50px auto;
   }
 }

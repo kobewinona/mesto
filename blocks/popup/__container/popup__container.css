@@ -12,14 +12,28 @@
   width: calc(100% - (19px * 2));
   max-width: 345px;
 
+  background-color: #fff;
+
   position: relative;
 
   margin: 0 auto;
+  padding: 25px 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 @media (min-width: 425px) {
   .popup__container {
     width: calc(100% - (40px * 2));
     max-width: 430px;
+  }
+}
+
+@media (min-width: 520px) {
+  .popup__container {
+    padding: 34px 0 37px 0;
   }
 }
