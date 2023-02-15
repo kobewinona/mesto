@@ -25,7 +25,7 @@
     </section>
     <section class="places" aria-label="Секция с фотографиями мест России.">
       <ul class="places__list">
-        <li>
+        <!-- <li>
           <figure class="places__place">
             <img
               class="places__place-photo"
@@ -102,7 +102,7 @@
               <button class="places__like" type="button" aria-label="Нравится."></button>
             </figcaption>
           </figure>
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>
@@ -140,6 +140,21 @@
       </form>
     </div>
   </section>
+  <template id="place">
+    <li>
+      <figure class="places__place">
+        <img
+          class="places__place-photo"
+          src=""
+          alt=""
+        >
+        <figcaption class="places__place-caption">
+          <p class="places__place-name">test</p>
+          <button class="places__like" type="button" aria-label="Нравится."></button>
+        </figcaption>
+      </figure>
+    </li>
+  </template>
   <script src="scripts/index.js"></script>
 </body>
 </html>
