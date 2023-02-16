@@ -1,13 +1,3 @@
-@keyframes scaleUp {
-  from {scale: .5;}
-  to {scale: 1;}
-}
-
-@keyframes scaleDown {
-  from {scale: 1;}
-  to {scale: .5;}
-}
-
 .popup__container {
   width: calc(100% - (19px * 2));
   max-width: 345px;

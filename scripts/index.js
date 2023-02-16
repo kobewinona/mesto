@@ -5,7 +5,8 @@ const popup = document.querySelector('.popup');
 const popupContainer = popup.querySelector('.popup__container');
 const closeButton = popup.querySelector('.popup__close-button');
 const submitButton = popup.querySelector('.popup__form-submit');
-const formElement = document.querySelector('.popup__form');
+
+const formElement = popup.querySelector('.popup__form');
 const formInput = formElement.querySelectorAll('.popup__form-text');
 const nameInput = formElement.querySelector('.popup__form-text_name');
 const jobInput = formElement.querySelector('.popup__form-text_job');
@@ -13,8 +14,6 @@ const jobInput = formElement.querySelector('.popup__form-text_job');
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 const editButton = document.querySelector('.profile__edit-button');
-
-
 
 const initialCards = [
   {
@@ -73,32 +72,21 @@ places.forEach(place => placesList.append(place))
 
 // open and close popup
 
-const togglePopup = () => {
-  popup.classList.toggle('popup_opened');
-  nameInput.value = nameProfile.textContent;
-  jobInput.value = jobProfile.textContent;
-}
-
 const handlePopup = event => {
-  if (popup.classList.contains('popup_opened')) {
-    if (event.target === event.currentTarget) {
-      popup.style.animation = 'fadeOut ease-out .2s';
-      popupContainer.style.animation = 'scaleDown ease-out .2s';
+  if (event.target.classList.contains('profile__edit-button')) {
+    popup.style.animation = 'fadeIn ease-in .3s forwards';
 
-      setTimeout(togglePopup, 200);
-    }
-  } else {
-    popup.style.animation = 'fadeIn ease-in .2s';
-    popupContainer.style.animation = 'scaleUp ease-in .2s';
-
-    togglePopup();
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
+  } else if (event.target === event.currentTarget || event.target.classList.contains('popup__close-button')) {
+    popup.style.animation = 'fadeOut ease-out .4s forwards';
   }
 }
 
 
 // handle form input
 
-const handleFormSubmit = (event) => {
+const handleFormSubmit = event => {
     event.preventDefault();
 
     nameProfile.textContent = nameInput.value;
@@ -110,8 +98,8 @@ const handleFormSubmit = (event) => {
 
 // event listeners
 
-popup.addEventListener('click', handlePopup);
 editButton.addEventListener('click', handlePopup);
-closeButton.addEventListener('click', handlePopup);
+
+popup.addEventListener('click', handlePopup);
 
 formElement.addEventListener('submit', handleFormSubmit);
