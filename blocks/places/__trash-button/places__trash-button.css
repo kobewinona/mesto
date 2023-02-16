@@ -1,13 +1,16 @@
-.places__like {
-  min-width: 22px;
-  aspect-ratio: 22 / 19;
-
-  cursor: pointer;
+.places__trash-button {
+  width: 18px;
+  height: 19px;
 
   background-color: transparent;
-  background-image: url('../../../images/like_disabled.svg');
+  background-image: url('../../../images/trash-pict.svg');
   background-repeat: no-repeat;
+  background-size: contain;
 
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
   border: none;
 
   transition: opacity .4s ease-out;
@@ -17,8 +20,10 @@
   -o-transition: opacity .4s ease-out;
 }
 
-.places__like:hover {
-  opacity: .5;
+.places__trash-button:hover {
+  cursor: pointer;
+
+  opacity: .6;
 
   transition: opacity .2s ease-in;
   -webkit-transition: opacity .2s ease-in;

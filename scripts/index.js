@@ -44,16 +44,26 @@ const initialCards = [
 ];
 
 
-// loading of initial cards
+// load initial cards
 
 const places = initialCards.map(card => {
   const placeElement = placeTemplate.cloneNode(true);
 
+  const trashButton = placeElement.querySelector('.places__trash-button');
   const placeName = placeElement.querySelector('.places__place-name');
   const placePhoto = placeElement.querySelector('.places__place-photo');
+  const likeButton = placeElement.querySelector('.places__like-button');
 
   placeName.textContent = card.name;
   placePhoto.src = card.link;
+
+  trashButton.addEventListener('click', event => {
+    event.target.parentElement.parentElement.remove();
+  })
+
+  likeButton.addEventListener('click', event => {
+    event.target.classList.toggle('places__like-button_active');
+  });
 
   return placeElement;
 })
@@ -61,15 +71,15 @@ const places = initialCards.map(card => {
 places.forEach(place => placesList.append(place))
 
 
-// opening and closing of popup
+// open and close popup
 
-function togglePopup() {
+const togglePopup = () => {
   popup.classList.toggle('popup_opened');
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 }
 
-function handlePopup(event) {
+const handlePopup = event => {
   if (popup.classList.contains('popup_opened')) {
     if (event.target === event.currentTarget) {
       popup.style.animation = 'fadeOut ease-out .2s';
@@ -86,9 +96,9 @@ function handlePopup(event) {
 }
 
 
-// handling form input
+// handle form input
 
-function handleFormSubmit (event) {
+const handleFormSubmit = (event) => {
     event.preventDefault();
 
     nameProfile.textContent = nameInput.value;
