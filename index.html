@@ -31,86 +31,6 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Dima Klimkin</p>
   </footer>
-  <section class="popup" aria-label="Окно редактирования профиля.">
-    <div class="popup__container">
-      <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" method="get" name="edit-profile">
-        <input
-          class="popup__form-text popup__form-text_name"
-          aria-label="Имя."
-          type="text"
-          name="name"
-          value=""
-          placeholder="Имя"
-        >
-        <input
-          class="popup__form-text popup__form-text_job"
-          aria-label="Деятельность."
-          type="text"
-          name="job"
-          value=""
-          placeholder="Описание"
-        >
-        <input
-          class="popup__form-submit"
-          aria-label="Сохранить."
-          type="submit"
-          name="submit"
-          value="Сохранить"
-        >
-      </form>
-    </div>
-  </section>
-  <template id="popup">
-    <section class="popup" aria-label="">
-      <div class="popup__container">
-        <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
-        <h2 class="popup__title"></h2>
-        <form class="popup__form" method="get" name="edit-profile">
-          <input
-            class="popup__form-text popup__form-text_profile-name"
-            aria-label="Имя."
-            type="text"
-            name="profile_name"
-            value=""
-            placeholder="Имя"
-          >
-          <input
-            class="popup__form-text popup__form-text_job"
-            aria-label="Деятельность."
-            type="text"
-            name="job"
-            value=""
-            placeholder="Описание"
-          >
-          <input
-            class="popup__form-text popup__form-text_place-name"
-            aria-label="Название."
-            type="text"
-            name="place_name"
-            value=""
-            placeholder="Название"
-          >
-          <input
-            class="popup__form-text popup__form-text_place-link"
-            aria-label="Ссылка на картинку."
-            type="url"
-            name="place_photo-link"
-            value=""
-            placeholder="Ссылка на картинку"
-          >
-          <input
-            class="popup__form-submit"
-            aria-label="Сохранить."
-            type="submit"
-            name="submit"
-            value="Сохранить"
-          >
-        </form>
-      </div>
-    </section>
-  </template>
   <template id="place">
     <li>
       <figure class="places__place">
@@ -125,6 +45,55 @@
         </figcaption>
       </figure>
     </li>
+  </template>
+  <template id="popup">
+    <section class="popup" aria-label="">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+        <h2 class="popup__title"></h2>
+        <form class="popup__form" method="get" name="edit-profile">
+          <input
+            class="popup__form-text popup__form-text_profile-name"
+            aria-label="Имя."
+            type="text"
+            name="profile-name"
+            value=""
+            placeholder="Имя"
+          >
+          <input
+            class="popup__form-text popup__form-text_job"
+            aria-label="Деятельность."
+            type="text"
+            name="profile-job"
+            value=""
+            placeholder="Описание"
+          >
+          <input
+            class="popup__form-text popup__form-text_place-name"
+            aria-label="Название."
+            type="text"
+            name="place-name"
+            value=""
+            placeholder="Название"
+          >
+          <input
+            class="popup__form-text popup__form-text_place-link"
+            aria-label="Ссылка на картинку."
+            type="url"
+            name="place-photo-link"
+            value=""
+            placeholder="Ссылка на картинку"
+          >
+          <input
+            class="popup__form-submit"
+            aria-label="Сохранить."
+            type="submit"
+            name="submit"
+            value="Сохранить"
+          >
+        </form>
+      </div>
+    </section>
   </template>
   <script src="scripts/index.js"></script>
 </body>

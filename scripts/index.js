@@ -1,19 +1,14 @@
-const placeTemplate = document.querySelector('#place').content;
-const placesList = document.querySelector('.places__list');
-
-const popup = document.querySelector('.popup');
-const popupContainer = popup.querySelector('.popup__container');
-const closeButton = popup.querySelector('.popup__close-button');
-const submitButton = popup.querySelector('.popup__form-submit');
-
-const formElement = popup.querySelector('.popup__form');
-const formInput = formElement.querySelectorAll('.popup__form-text');
-const nameInput = formElement.querySelector('.popup__form-text_name');
-const jobInput = formElement.querySelector('.popup__form-text_job');
-
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 const editButton = document.querySelector('.profile__edit-button');
+const addButton = document.querySelector('.profile__add-button');
+
+const placesList = document.querySelector('.places__list');
+const placeTemplate = document.querySelector('#place').content;
+
+const footer = document.querySelector('.footer');
+
+const popupTemplate = document.querySelector('#popup').content;
 
 const initialCards = [
   {
@@ -43,9 +38,9 @@ const initialCards = [
 ];
 
 
-// load initial cards
+// create card
 
-const places = initialCards.map(card => {
+const createCard = (card) => {
   const placeElement = placeTemplate.cloneNode(true);
 
   const trashButton = placeElement.querySelector('.places__trash-button');
@@ -64,42 +59,123 @@ const places = initialCards.map(card => {
     event.target.classList.toggle('places__like-button_active');
   });
 
-  return placeElement;
-})
-
-places.forEach(place => placesList.append(place))
-
-
-// open and close popup
-
-const handlePopup = event => {
-  if (event.target.classList.contains('profile__edit-button')) {
-    popup.style.animation = 'fadeIn ease-in .3s forwards';
-
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
-  } else if (event.target === event.currentTarget || event.target.classList.contains('popup__close-button')) {
-    popup.style.animation = 'fadeOut ease-out .4s forwards';
-  }
+  return placesList.prepend(placeElement);
 }
 
 
-// handle form input
+// load initial cards
 
-const handleFormSubmit = event => {
-    event.preventDefault();
+const places = initialCards.slice().reverse().forEach(card => createCard(card))
 
-    nameProfile.textContent = nameInput.value;
-    jobProfile.textContent = jobInput.value;
 
-    handlePopup(event);
+// create popup
+
+const createPopup = event => {
+  const popupElement = popupTemplate.cloneNode(true);
+
+  const popup = popupElement.querySelector('.popup');
+  const popupContainer = popup.querySelector('.popup__container');
+  const popupTitle = popup.querySelector('.popup__title');
+  const popupInputs = Array.from(popup.querySelectorAll('.popup__form-text'));
+  const closeButton = popup.querySelector('.popup__close-button');
+
+  const formElement = popup.querySelector('.popup__form');
+  const nameInput = formElement.querySelector('.popup__form-text_profile-name');
+  const jobInput = formElement.querySelector('.popup__form-text_job');
+  const placeNameInput = formElement.querySelector('.popup__form-text_place-name');
+  const placePhotoInput = formElement.querySelector('.popup__form-text_place-link');
+
+  const editInputs = popupInputs.filter(input => {
+    const fields = ['profile-name', 'profile-job'];
+
+    return fields.includes(input.name);
+  })
+
+  const addInputs = popupInputs.filter(input => {
+    const fields = ['place-name', 'place-photo-link'];
+
+    return fields.includes(input.name);
+  })
+
+  popup.style.animation = 'fadeIn ease-in .3s forwards';
+  popupContainer.style.animation = 'scaleUp ease-in .2s forwards';
+
+  const closePopup = event => {
+    if (event.target === event.currentTarget || event.target === closeButton) {
+      popup.style.animation = 'fadeOut ease-out .4s forwards';
+      popupContainer.style.animation = 'scaleDown ease-out .2s forwards';
+
+      const removePopup = () => {
+        popup.remove();
+      }
+
+      setTimeout(removePopup, 200);
+    }
+  }
+
+  popup.addEventListener('click', closePopup);
+
+
+  // edit popup
+
+  if (event.target === editButton) {
+    popupTitle.textContent = 'Редактировать профиль';
+    popup.setAttribute('aria-label', 'Окно редактирования профиля.');
+
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
+
+    popupInputs.forEach(input => input.remove());
+
+    formElement.prepend(editInputs[0], editInputs[1]);
+
+    const handleFormSubmit = event => {
+      event.preventDefault();
+
+      nameProfile.textContent = nameInput.value;
+      jobProfile.textContent = jobInput.value;
+
+      closePopup(event);
+    }
+
+    formElement.addEventListener('submit', handleFormSubmit);
+  }
+
+    // add popup
+
+    if (event.target === addButton) {
+      popupTitle.textContent = 'Новое место';
+      popup.setAttribute('aria-label', 'Окно добавления нового места.');
+
+      popupInputs.forEach(input => input.remove());
+
+      formElement.prepend(addInputs[0], addInputs[1]);
+
+      const handleFormSubmit = event => {
+        event.preventDefault();
+
+        console.log('added');
+
+        const card = {
+            name: 'bochka',
+            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+        };
+
+        console.log(card);
+
+        createCard(card);
+
+        closePopup(event);
+      }
+
+      formElement.addEventListener('submit', handleFormSubmit);
+    }
+
+  footer.after(popupElement);
 }
 
 
 // event listeners
 
-editButton.addEventListener('click', handlePopup);
-
-popup.addEventListener('click', handlePopup);
-
-formElement.addEventListener('submit', handleFormSubmit);
+editButton.addEventListener('click', createPopup);
+addButton.addEventListener('click', createPopup);
