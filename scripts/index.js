@@ -146,7 +146,7 @@ const handlePopup = event => {
       const handleFormSubmit = event => {
         event.preventDefault();
 
-        let card = {};
+        const card = {};
         card.name = placeNameInput.value;
         card.link = placePhotoInput.value;
 
@@ -221,12 +221,6 @@ initialCards.slice().forEach(card => placesList.append(createCard(card)));
 
 editButton.addEventListener('click', handlePopup);
 addButton.addEventListener('click', handlePopup);
-
-const place = document.querySelectorAll('.places__place');
-
-place.forEach(item => {
-  item.addEventListener('click', handlePopup);
-})
 
 
 
