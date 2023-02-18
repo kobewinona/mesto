@@ -8,7 +8,7 @@
   to {scale: .5;}
 }
 
-.popup__container {
+.popup__form-container {
   width: calc(100% - (19px * 2));
   max-width: 345px;
 
@@ -26,14 +26,14 @@
 }
 
 @media (min-width: 425px) {
-  .popup__container {
+  .popup__form-container {
     width: calc(100% - (40px * 2));
     max-width: 430px;
   }
 }
 
 @media (min-width: 520px) {
-  .popup__container {
+  .popup__form-container {
     padding: 34px 0 37px 0;
   }
 }

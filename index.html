@@ -40,15 +40,16 @@
           src=""
         >
         <figcaption class="places__place-caption">
-          <p class="places__place-name">test</p>
+          <p class="places__place-name"></p>
           <button class="places__like-button" type="button" aria-label="Нравится."></button>
         </figcaption>
       </figure>
     </li>
   </template>
-  <template id="popup">
+  <template id="popup-form">
     <section class="popup" aria-label="">
-      <div class="popup__container">
+      <div class="popup__overlay"></div>
+      <div class="popup__form-container">
         <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
         <h2 class="popup__title"></h2>
         <form class="popup__form" method="get" name="edit-profile">
@@ -59,6 +60,7 @@
             name="profile-name"
             value=""
             placeholder="Имя"
+            required
           >
           <input
             class="popup__form-text popup__form-text_job"
@@ -67,6 +69,7 @@
             name="profile-job"
             value=""
             placeholder="Описание"
+            required
           >
           <input
             class="popup__form-text popup__form-text_place-name"
@@ -75,6 +78,7 @@
             name="place-name"
             value=""
             placeholder="Название"
+            required
           >
           <input
             class="popup__form-text popup__form-text_place-link"
@@ -83,6 +87,7 @@
             name="place-photo-link"
             value=""
             placeholder="Ссылка на картинку"
+            required
           >
           <input
             class="popup__form-submit"
@@ -92,6 +97,15 @@
             value="Сохранить"
           >
         </form>
+      </div>
+      <div class="popup__preview-container">
+        <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+        <figure class="popup__preview-element">
+          <img class="popup__preview-photo" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" width="100%" height="100%" alt="">
+          <figcaption>
+            <p class="popup__preview-cap"></p>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </template>
