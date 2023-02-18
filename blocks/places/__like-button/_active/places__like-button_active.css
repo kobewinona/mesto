@@ -1,4 +1,38 @@
+@keyframes pop {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 2;
+    visibility: hidden;
+  }
+}
+
 .places__like-button_active {
   background-image: url('../../../../images/like_active.svg');
   background-repeat: no-repeat;
+
+  position: relative;
 }
+
+.places__like-button_active::after {
+  content: '';
+
+  width: 22px;
+  aspect-ratio: 22 / 19;
+
+  background-image: url('../../../../images/like_active.svg');
+  background-repeat: no-repeat;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  
+  animation: pop .3s ease-in-out forwards;
+  -webkit-animation: pop .3s ease-in-out forwards;
+}
+
+

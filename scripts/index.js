@@ -10,7 +10,7 @@ const footer = document.querySelector('.footer');
 
 const popupTemplate = document.querySelector('#popup').content;
 
-const initialCards = [
+let initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -47,30 +47,39 @@ const createCard = (card) => {
   const placeName = placeElement.querySelector('.places__place-name');
   const placePhoto = placeElement.querySelector('.places__place-photo');
   const likeButton = placeElement.querySelector('.places__like-button');
+  const place = placeElement.querySelector('.places__place');
+
+  place.style.animation = 'appear .2s ease-in forwards';
 
   placeName.textContent = card.name;
   placePhoto.src = card.link;
 
   trashButton.addEventListener('click', event => {
-    event.target.parentElement.parentElement.remove();
+    const removeCard = () => {
+      event.target.parentElement.parentElement.remove();
+    }
+
+    place.style.animation = 'disappear .2s ease-out forwards';
+
+    setTimeout(removeCard, 200);
   })
 
   likeButton.addEventListener('click', event => {
     event.target.classList.toggle('places__like-button_active');
   });
 
-  return placesList.prepend(placeElement);
+  return placeElement;
 }
 
 
 // load initial cards
 
-const places = initialCards.slice().reverse().forEach(card => createCard(card))
+initialCards.slice().forEach(card => placesList.append(createCard(card)));
 
 
-// create popup
+// handle popup
 
-const createPopup = event => {
+const handlePopup = event => {
   const popupElement = popupTemplate.cloneNode(true);
 
   const popup = popupElement.querySelector('.popup');
@@ -100,6 +109,9 @@ const createPopup = event => {
   popup.style.animation = 'fadeIn ease-in .3s forwards';
   popupContainer.style.animation = 'scaleUp ease-in .2s forwards';
 
+
+  // close popup
+
   const closePopup = event => {
     if (event.target === event.currentTarget || event.target === closeButton) {
       popup.style.animation = 'fadeOut ease-out .4s forwards';
@@ -116,7 +128,7 @@ const createPopup = event => {
   popup.addEventListener('click', closePopup);
 
 
-  // edit popup
+  // create edit popup
 
   if (event.target === editButton) {
     popupTitle.textContent = 'Редактировать профиль';
@@ -127,7 +139,10 @@ const createPopup = event => {
 
     popupInputs.forEach(input => input.remove());
 
-    formElement.prepend(editInputs[0], editInputs[1]);
+    editInputs.reverse().forEach(input => formElement.prepend(input));
+
+
+    // handle edit popup form
 
     const handleFormSubmit = event => {
       event.preventDefault();
@@ -141,7 +156,7 @@ const createPopup = event => {
     formElement.addEventListener('submit', handleFormSubmit);
   }
 
-    // add popup
+    // create add popup
 
     if (event.target === addButton) {
       popupTitle.textContent = 'Новое место';
@@ -149,21 +164,19 @@ const createPopup = event => {
 
       popupInputs.forEach(input => input.remove());
 
-      formElement.prepend(addInputs[0], addInputs[1]);
+      addInputs.reverse().forEach(input => formElement.prepend(input))
+
+
+      // handle add popup form
 
       const handleFormSubmit = event => {
         event.preventDefault();
 
-        console.log('added');
+        let card = {};
+        card.name = placeNameInput.value;
+        card.link = placePhotoInput.value;
 
-        const card = {
-            name: 'bochka',
-            link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-        };
-
-        console.log(card);
-
-        createCard(card);
+        placesList.prepend(createCard(card));
 
         closePopup(event);
       }
@@ -177,5 +190,5 @@ const createPopup = event => {
 
 // event listeners
 
-editButton.addEventListener('click', createPopup);
-addButton.addEventListener('click', createPopup);
+editButton.addEventListener('click', handlePopup);
+addButton.addEventListener('click', handlePopup);

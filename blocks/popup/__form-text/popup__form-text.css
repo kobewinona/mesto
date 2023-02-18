@@ -12,8 +12,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.popup__form-text:nth-child(2),
-.popup__form-text:nth-child(4) {
+.popup__form-text:nth-last-of-type(2) {
   margin: 0;
 }
 
