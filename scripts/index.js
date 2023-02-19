@@ -4,11 +4,11 @@ const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 
 const placesList = document.querySelector('.places__list');
-const placeTemplate = document.querySelector('#place').content;
 
 const footer = document.querySelector('.footer');
 
-const popupTemplate = document.querySelector('#popup-form').content;
+const placeTemplate = document.querySelector('#place').content;
+const popupTemplate = document.querySelector('#popup').content;
 
 const initialCards = [
   {
@@ -38,142 +38,149 @@ const initialCards = [
 ];
 
 
-// handle popup
+// close popup
 
-const handlePopup = event => {
+const closePopup = (event, element, overlay, container) => {
+  if (event.target === event.currentTarget || event.target.classList.contains('popup__close-button')) {
+    element.style.animation = 'fadeOut ease-out .4s forwards';
+    overlay.style.opacity = '0';
+    container.style.animation = 'scaleDown ease-out .2s forwards';
+
+    const removePopup = () => {
+      element.remove();
+    }
+
+    setTimeout(removePopup, 200);
+  }
+}
+
+
+// handle form
+
+const handleForm = (event, type, firstInput, secondInput) => {
+  event.preventDefault();
+
+  switch (type.name) {
+    case 'edit-profile':
+      nameProfile.textContent = firstInput.value;
+      jobProfile.textContent = secondInput.value;
+    break;
+    case 'add-place':
+      const card = {};
+      card.name = firstInput.value;
+      card.link = secondInput.value;
+
+      placesList.prepend(createCard(card));
+    break;
+  }
+}
+
+
+// create popup
+
+const createPopup = event => {
   const popupElement = popupTemplate.cloneNode(true);
 
+  // popup window elements
   const popup = popupElement.querySelector('.popup');
   const popupOverlay = popup.querySelector('.popup__overlay');
-  const popupFormContainer = popup.querySelector('.popup__form-container');
   const popupTitle = popup.querySelector('.popup__title');
+
+  // popup form elements
+  const formElement = popup.querySelector('.popup__form');
+  const popupFormContainer = popup.querySelector('.popup__form-container');
   const popupInputs = Array.from(popup.querySelectorAll('.popup__form-text'));
+  const nameInput = formElement.querySelector('.popup__form-text_profile-name');
+  const jobInput = formElement.querySelector('.popup__form-text_job');
+  const placeNameInput = formElement.querySelector('.popup__form-text_place-name');
+  const placeLinkInput = formElement.querySelector('.popup__form-text_place-link');
+
+  // popup preview elements
   const popupPreviewContainer = popup.querySelector('.popup__preview-container');
   const popupPreviewPhoto = popup.querySelector('.popup__preview-photo');
   const popupPreviewCap = popup.querySelector('.popup__preview-cap');
 
-  const formElement = popup.querySelector('.popup__form');
-  const nameInput = formElement.querySelector('.popup__form-text_profile-name');
-  const jobInput = formElement.querySelector('.popup__form-text_job');
-  const placeNameInput = formElement.querySelector('.popup__form-text_place-name');
-  const placePhotoInput = formElement.querySelector('.popup__form-text_place-link');
 
-  const editInputs = popupInputs.filter(input => {
-    const fields = ['profile-name', 'profile-job'];
-
-    return fields.includes(input.name);
-  })
-
-  const addInputs = popupInputs.filter(input => {
-    const fields = ['place-name', 'place-photo-link'];
-
-    return fields.includes(input.name);
-  })
+  popup.style.animation = 'fadeIn ease-in .3s forwards';
+  popupOverlay.style.opacity = '.5';
+  popupFormContainer.style.animation = 'scaleUp ease-in .2s forwards';
 
 
-  // close popup
+  popup.addEventListener('click', event => {
+    closePopup(event, popup, popupOverlay, popupFormContainer);
+  });
 
-  const closePopup = event => {
-    if (event.target === event.currentTarget || event.target.classList.contains('popup__close-button')) {
-      popup.style.animation = 'fadeOut ease-out .4s forwards';
-      popupOverlay.style.opacity = '0';
-      popupFormContainer.style.animation = 'scaleDown ease-out .2s forwards';
-
-      const removePopup = () => {
-        popup.remove();
-      }
-
-      setTimeout(removePopup, 200);
-    }
-  }
-
-  popup.addEventListener('click', closePopup);
+  formElement.addEventListener('submit', event => {
+    closePopup(event, popup, popupOverlay, popupFormContainer);
+  });
 
 
-  // create edit popup
-
+  // choose popup type and add
   if (event.target === editButton) {
-    popup.style.animation = 'fadeIn ease-in .3s forwards';
-    popupOverlay.style.opacity = '.5';
-    popupFormContainer.style.animation = 'scaleUp ease-in .2s forwards';
+    const editInputs = popupInputs.filter(input => {
+      const fields = ['profile-name', 'profile-job'];
+
+      return fields.includes(input.name);
+    })
 
     popupTitle.textContent = 'Редактировать профиль';
     popup.setAttribute('aria-label', 'Окно редактирования профиля.');
     formElement.setAttribute('name', 'edit-profile');
-
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
 
     popupInputs.forEach(input => input.remove());
     popupPreviewContainer.remove();
 
     editInputs.reverse().forEach(input => formElement.prepend(input));
 
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
 
-    // handle edit popup form
+    formElement.addEventListener('submit', event => {
+      handleForm(event, formElement, nameInput, jobInput);
+    })
 
-    const handleFormSubmit = event => {
-      event.preventDefault();
+    return popup;
+  } else if (event.target === addButton) {
+    const addInputs = popupInputs.filter(input => {
+      const fields = ['place-name', 'place-photo-link'];
 
-      nameProfile.textContent = nameInput.value;
-      jobProfile.textContent = jobInput.value
+      return fields.includes(input.name);
+    })
 
-      closePopup(event);
-    }
+    popupTitle.textContent = 'Новое место';
+    popup.setAttribute('aria-label', 'Окно добавления нового места.');
+    formElement.setAttribute('name', 'add-place');
 
-    formElement.addEventListener('submit', handleFormSubmit);
+    popupInputs.forEach(input => input.remove());
+    popupPreviewContainer.remove();
+
+    addInputs.reverse().forEach(input => formElement.prepend(input));
+
+    formElement.addEventListener('submit', event => {
+      handleForm(event, formElement, placeNameInput, placeLinkInput);
+    })
+
+    return popup;
+  } else if (event.target.classList.contains('places__place-photo')) {
+    popupOverlay.style.opacity = '.9';
+
+    popupFormContainer.remove();
+
+    popupPreviewCap.textContent = event.currentTarget.querySelector('.places__place-name').textContent;
+    popupPreviewPhoto.src = event.currentTarget.querySelector('.places__place-photo').src;
+
+    return popup;
   }
-
-    // create add popup
-
-    if (event.target === addButton) {
-      popup.style.animation = 'fadeIn ease-in .3s forwards';
-      popupOverlay.style.opacity = '.5';
-      popupFormContainer.style.animation = 'scaleUp ease-in .2s forwards';
-
-      popupTitle.textContent = 'Новое место';
-      popup.setAttribute('aria-label', 'Окно добавления нового места.');
-      formElement.setAttribute('name', 'add-place');
-
-      popupInputs.forEach(input => input.remove());
-      popupPreviewContainer.remove();
-
-      addInputs.reverse().forEach(input => formElement.prepend(input))
-
-
-      // handle add popup form
-
-      const handleFormSubmit = event => {
-        event.preventDefault();
-
-        const card = {};
-        card.name = placeNameInput.value;
-        card.link = placePhotoInput.value;
-
-        placesList.prepend(createCard(card));
-
-        closePopup(event);
-      }
-
-      formElement.addEventListener('submit', handleFormSubmit);
-    }
-
-
-    // create preview popup
-
-    if (event.currentTarget.classList.contains('places__place') && !event.target.classList.contains('places__like-button') && !event.target.classList.contains('places__trash-button')) {
-      popup.style.animation = 'fadeIn ease-in .3s forwards';
-      popupOverlay.style.opacity = '.9';
-      popupFormContainer.style.animation = 'scaleUp ease-in .2s forwards';
-
-      popupFormContainer.remove();
-
-      popupPreviewCap.textContent = event.currentTarget.querySelector('.places__place-name').textContent;
-      popupPreviewPhoto.src = event.currentTarget.querySelector('.places__place-photo').src;
-    }
-
-  footer.after(popupElement);
 }
+
+const showPopup = event => {
+  const popup = createPopup(event);
+
+  return footer.after(popup);
+}
+
+editButton.addEventListener('click', showPopup);
+addButton.addEventListener('click', showPopup);
 
 
 // create card
@@ -206,7 +213,7 @@ const createCard = (card) => {
     event.target.classList.toggle('places__like-button_active');
   });
 
-  place.addEventListener('click', handlePopup);
+  place.addEventListener('click', showPopup);
 
   return placeElement;
 }
@@ -215,13 +222,3 @@ const createCard = (card) => {
 // load initial cards
 
 initialCards.slice().forEach(card => placesList.append(createCard(card)));
-
-
-// event listeners
-
-editButton.addEventListener('click', handlePopup);
-addButton.addEventListener('click', handlePopup);
-
-
-
-

@@ -34,7 +34,3 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-
-.places__place:hover {
-  cursor: pointer;
-}
