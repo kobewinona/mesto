@@ -29,14 +29,17 @@
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 
 @import url('../blocks/popup/popup.css');
-@import url('../blocks/popup/__overlay/popup__overlay.css');
+@import url('../blocks/popup/_opened/popup_opened.css');
+@import url('../blocks/popup/_type/popup_type_edit-profile.css');
+@import url('../blocks/popup/_type/popup_type_add-place.css');
+@import url('../blocks/popup/_type/popup_type_place-preview.css');
 @import url('../blocks/popup/__cloes-button/popup__close-button.css');
 @import url('../blocks/popup/__form-container/popup__form-container.css');
 @import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__form-text/popup__form-text.css');
 @import url('../blocks/popup/__form-text/_profile-name/popup__form-text_profile-name.css');
-@import url('../blocks/popup/__form-text/_job/popup__form-text_job.css');
+@import url('../blocks/popup/__form-text/_profile-job/popup__form-text_profile-job.css');
 @import url('../blocks/popup/__form-text/_place-name/popup__form-text_place-name.css');
 @import url('../blocks/popup/__form-text/_place-link/popup__form-text_place-link.css');
 @import url('../blocks/popup/__form-submit/popup__form-submit.css');

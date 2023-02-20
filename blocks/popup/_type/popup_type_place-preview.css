@@ -1,0 +1,5 @@
+.popup_type_place-preview:before {
+  content: '';
+
+  opacity: .9;
+}

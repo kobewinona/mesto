@@ -31,6 +31,86 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Dima Klimkin</p>
   </footer>
+  <section class="popup popup_type_edit-profile">
+    <div class="popup__form-container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form popup__form_edit-profile" method="get" name="edit-profile">
+        <input
+          class="popup__form-text popup__form-text_profile-name"
+          aria-label="Имя."
+          type="text"
+          name="profile-name"
+          value=""
+          placeholder="Имя"
+          required
+        >
+        <input
+          class="popup__form-text popup__form-text_job"
+          aria-label="Деятельность."
+          type="text"
+          name="profile-job"
+          value=""
+          placeholder="Описание"
+          required
+        >
+        <input
+            class="popup__form-submit"
+            aria-label="Сохранить."
+            type="submit"
+            name="submit"
+            value="Сохранить"
+          >
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_type_add-place">
+    <div class="popup__form-container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_add-place" method="get" name="add-place">
+        <input
+          class="popup__form-text popup__form-text_place-name"
+          aria-label="Название."
+          type="text"
+          name="place-name"
+          value=""
+          placeholder="Название"
+          required
+        >
+        <input
+          class="popup__form-text popup__form-text_place-link"
+          aria-label="Ссылка на картинку."
+          type="url"
+          name="place-photo-link"
+          value=""
+          placeholder="Ссылка на картинку"
+          required
+        >
+        <input
+            class="popup__form-submit"
+            aria-label="Сохранить."
+            type="submit"
+            name="submit"
+            value="Сохранить"
+          >
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_type_place-preview">
+    <div class="popup__preview-container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
+      <figure class="popup__preview-element">
+        <img
+          class="popup__preview-photo"
+          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
+        >
+        <figcaption>
+          <p class="popup__preview-cap"></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
   <template id="place">
     <li>
       <figure class="places__place">
@@ -45,72 +125,6 @@
         </figcaption>
       </figure>
     </li>
-  </template>
-  <template id="popup">
-    <section class="popup" aria-label="">
-      <div class="popup__overlay"></div>
-      <div class="popup__form-container">
-        <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
-        <h2 class="popup__title"></h2>
-        <form class="popup__form" method="get" name="">
-          <input
-            class="popup__form-text popup__form-text_profile-name"
-            aria-label="Имя."
-            type="text"
-            name="profile-name"
-            value=""
-            placeholder="Имя"
-            required
-          >
-          <input
-            class="popup__form-text popup__form-text_job"
-            aria-label="Деятельность."
-            type="text"
-            name="profile-job"
-            value=""
-            placeholder="Описание"
-            required
-          >
-          <input
-            class="popup__form-text popup__form-text_place-name"
-            aria-label="Название."
-            type="text"
-            name="place-name"
-            value=""
-            placeholder="Название"
-            required
-          >
-          <input
-            class="popup__form-text popup__form-text_place-link"
-            aria-label="Ссылка на картинку."
-            type="url"
-            name="place-photo-link"
-            value=""
-            placeholder="Ссылка на картинку"
-            required
-          >
-          <input
-            class="popup__form-submit"
-            aria-label="Сохранить."
-            type="submit"
-            name="submit"
-            value="Сохранить"
-          >
-        </form>
-      </div>
-      <div class="popup__preview-container">
-        <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
-        <figure class="popup__preview-element">
-          <img
-            class="popup__preview-photo"
-            src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-          >
-          <figcaption>
-            <p class="popup__preview-cap"></p>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
   </template>
   <script src="scripts/index.js"></script>
 </body>

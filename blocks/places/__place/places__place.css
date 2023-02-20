@@ -22,11 +22,10 @@
 
 .places__place {
   font-size: 0;
-
   background-color: #fff;
 
   position: relative;
-
+  
   margin: 0;
   border-radius: 10px;
   -webkit-border-radius: 10px;

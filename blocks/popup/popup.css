@@ -1,25 +1,3 @@
-@keyframes fadeIn {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
 .popup {
   width: 100%;
   height: 100vh;
@@ -35,4 +13,30 @@
 
   top: 0;
   left: 0;
+
+  opacity: 0;
+  
+  transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+}
+
+.popup::before {
+  content: '';
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+
+  opacity: .5;
 }
