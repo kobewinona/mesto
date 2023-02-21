@@ -2,14 +2,12 @@ const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 
 const popups = document.querySelectorAll('.popup');
+const profilePopup = document.querySelector('.popup_type_edit-profile');
+const cardPopup = document.querySelector('.popup_type_add-place');
+const cardPreviewPopup = document.querySelector('.popup_type_place-preview');
 
 const profileButton = document.querySelector('.profile__edit-button');
-const profilePopup = document.querySelector('.popup_type_edit-profile');
-
 const cardButton = document.querySelector('.profile__add-button');
-const cardPopup = document.querySelector('.popup_type_add-place');
-
-const cardPreviewPopup = document.querySelector('.popup_type_place-preview');
 
 const cardsList = document.querySelector('.places__list');
 
@@ -137,6 +135,7 @@ const createCard = item => {
 
 
   deleteCardButton.addEventListener('click', deleteCard);
+
   likeCardButton.addEventListener('click', toggleLike);
 
   cardPhoto.addEventListener('click', () => {
