@@ -65,13 +65,22 @@ const initialCards = [
 const closePopup = popup => {
   popup.classList.remove('popup_opened');
 
-  popup.querySelector('.popup__container').style.animation = 'shrink .2s ease-out forwards';
+  if (popup.querySelector('.popup__container').classList.contains('grow')) {
+    popup.querySelector('.popup__container').classList.remove('grow');
+  }
+
+  popup.querySelector('.popup__container').classList.add('shrink');
+
 }
 
 const openPopup = popup => {
   popup.classList.add('popup_opened');
 
-  popup.querySelector('.popup__container').style.animation = 'grow .2s ease-in forwards';
+  if (popup.querySelector('.popup__container').classList.contains('shrink')) {
+    popup.querySelector('.popup__container').classList.remove('shrink');
+  }
+
+  popup.querySelector('.popup__container').classList.add('grow');
 }
 
 
@@ -105,11 +114,15 @@ const handleCardForm = event => {
 // handle cards
 
 const deleteCard = event => {
+  if (event.target.closest('li').classList.contains('grow')) {
+    event.target.closest('li').classList.remove('grow');
+  }
+
+  event.target.closest('li').classList.add('shrink');
+
   const removeCard = () => {
     event.target.closest('li').remove();
   }
-
-  event.target.closest('li').style.animation = 'shrink .2s ease-out forwards';
 
   setTimeout(removeCard, 200);
 }
@@ -131,7 +144,12 @@ const createCard = item => {
   cardName.textContent = item.name;
   cardPhoto.src = item.link;
   cardPhoto.alt = item.alt;
-  card.closest('li').style.animation = 'grow .2s ease-in forwards';
+
+  if (card.closest('li').classList.contains('shrink')) {
+    card.closest('li').classList.remove('shrink');
+  }
+
+  card.closest('li').classList.add('grow');
 
 
   deleteCardButton.addEventListener('click', deleteCard);

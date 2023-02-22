@@ -2,9 +2,8 @@
 
 @import url('../vendor/fonts/inter.css');
 
-@import url('../blocks/scaling/scaling.css');
-@import url('../blocks/scaling/_type/scaling_type_grow.css');
-@import url('../blocks/scaling/_type/scaling_type_shrink.css');
+@import url('../blocks/grow/grow.css');
+@import url('../blocks/shrink/shrink.css');
 
 @import url('../blocks/page/page.css');
 

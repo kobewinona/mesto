@@ -8,3 +8,8 @@
     scale: .5;
   }
 }
+
+.shrink {
+  animation: shrink .2s ease-out forwards;
+  -webkit-animation: shrink .2s ease-out forwards;
+}
