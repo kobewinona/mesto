@@ -1,0 +1,46 @@
+.form__submit {
+  width: calc(100% - (22px * 2));
+  max-width: 358px;
+
+  color: #fff;
+  font-weight: 400;
+  font-size: clamp(14px, 3vw, 18px);
+  line-height: clamp(17px, 4vw, 22px);
+
+  cursor: pointer;
+
+  background-color: #000;
+
+  display: block;
+
+  margin: 28px auto 0 auto;
+  padding: 13px 0 13px 0;
+  border: 1px solid #000;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+
+  transition: all .4s ease-out;
+  -webkit-transition: all .4s ease-out;
+  -moz-transition: all .4s ease-out;
+  -ms-transition: all .4s ease-out;
+  -o-transition: all .4s ease-out;
+}
+
+.form__submit:hover {
+  opacity: .8;
+
+  transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  -ms-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+}
+
+@media (min-width: 520px) {
+  .form__submit {
+    margin: 15px auto 0 auto;
+  }
+}

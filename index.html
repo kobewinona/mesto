@@ -31,31 +31,39 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Климкин Дима</p>
   </footer>
-  <section class="popup popup_type_edit-profile">
-    <div class="popup__container popup__container_form">
+  <section class="popup popup_type_edit-profile" tabindex="-1">
+    <div class="popup__container popup__container_type_form">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__form_edit-profile" method="get" name="edit-profile">
+      <form class="form form_type_edit-profile" method="get" name="edit-profile" novalidate>
         <input
-          class="popup__form-text popup__form-text_profile-name"
+          id="profile-name-input"
+          class="form__input form__input_type_profile-name"
           aria-label="Имя."
           type="text"
           name="profile-name"
           value=""
           placeholder="Имя"
+          minlength="2"
+          maxlength="40"
           required
         >
+        <span class="profile-name-input-error form__input-error"></span>
         <input
-          class="popup__form-text popup__form-text_job"
+          id="profile-job-input"
+          class="form__input form__input_type_profile-job"
           aria-label="Деятельность."
           type="text"
           name="profile-job"
           value=""
           placeholder="Описание"
+          minlength="2"
+          maxlength="200"
           required
         >
+        <span class="profile-job-input-error form__input-error"></span>
         <input
-            class="popup__form-submit"
+            class="form__submit form__submit_disabled"
             aria-label="Сохранить."
             type="submit"
             name="submit"
@@ -64,22 +72,27 @@
       </form>
     </div>
   </section>
-  <section class="popup popup_type_add-place">
-    <div class="popup__container popup__container_form">
+  <section class="popup popup_type_add-place" tabindex="-1">
+    <div class="popup__container popup__container_type_form">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form_add-place" method="get" name="add-place">
+      <form class="form form_type_add-place" method="get" name="add-place" novalidate>
         <input
-          class="popup__form-text popup__form-text_place-name"
+          id="place-name-input"
+          class="form__input form__input_type_place-name"
           aria-label="Название."
           type="text"
           name="place-name"
           value=""
           placeholder="Название"
+          minlength="2"
+          maxlength="30"
           required
         >
+        <span class="place-name-input-error form__input-error"></span>
         <input
-          class="popup__form-text popup__form-text_place-link"
+          id="place-link-input"
+          class="form__input form__input_type_place-link"
           aria-label="Ссылка на картинку."
           type="url"
           name="place-photo-link"
@@ -87,17 +100,18 @@
           placeholder="Ссылка на картинку"
           required
         >
+        <span class="place-link-input-error form__input-error"></span>
         <input
-            class="popup__form-submit"
-            aria-label="Сохранить."
+            class="form__submit"
+            aria-label="Создать."
             type="submit"
             name="submit"
-            value="Сохранить"
+            value="Создать"
           >
       </form>
     </div>
   </section>
-  <section class="popup popup_type_place-preview">
+  <section class="popup popup_type_place-preview" aria-label="Окно просмотра фотографии." tabindex="-1">
     <div class="popup__container popup__container_preview">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <figure class="popup__preview-element">
@@ -119,7 +133,7 @@
         <img
           class="places__place-photo"
           src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-          alt = 'Горный хребет: заснеженный на переднем плане и покрытый зеленью на заднем плане.';
+          alt = 'Горный хребет: заснеженный на переднем плане и покрытый зеленью на заднем плане.'
         >
         <figcaption class="places__place-caption">
           <p class="places__place-name"></p>
@@ -128,6 +142,7 @@
       </figure>
     </li>
   </template>
+  <script src="scripts/validate.js"></script>
   <script src="scripts/index.js"></script>
 </body>
 </html>
