@@ -4,9 +4,15 @@
   max-width: 564px;
   aspect-ratio: 1 / 1;
 
+  color: #fff;
+
+  background-color: #000;
+
   object-fit: cover;
 
   cursor: pointer;
+
+  display: block;
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

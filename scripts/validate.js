@@ -51,6 +51,12 @@ const toggleSubmitButton = (inputList, buttonElement, validationOptions) => {
 // add event listeners
 
 const setEventListeners = (formElement, inputList, buttonElement, validationOptions) => {
+  formElement.addEventListener('submit', event => {
+    event.preventDefault();
+
+    disableSubmitButton(buttonElement, validationOptions);
+  })
+
   inputList.forEach(inputElement => {
     inputElement.addEventListener('input', () => {
       toggleInputError(formElement, inputElement, validationOptions);
@@ -68,12 +74,6 @@ const enableValidation = validationOptions => {
   formList.forEach(formElement => {
     const inputList = Array.from(formElement.querySelectorAll(validationOptions.inputSelector));
     const submitButton = formElement.querySelector(validationOptions.submitSelector);
-
-    formElement.addEventListener('submit', event => {
-      event.preventDefault();
-
-      disableSubmitButton(submitButton, validationOptions);
-    })
 
     setEventListeners(formElement, inputList, submitButton, validationOptions);
 

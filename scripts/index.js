@@ -1,103 +1,35 @@
-const nameProfile = document.querySelector('.profile__name');
-const jobProfile = document.querySelector('.profile__job');
-
-const profileButton = document.querySelector('.profile__edit-button');
-const cardButton = document.querySelector('.profile__add-button');
-
-const popups = document.querySelectorAll('.popup');
-const profilePopup = document.querySelector('.popup_type_edit-profile');
-const cardPopup = document.querySelector('.popup_type_add-place');
-const cardPreviewPopup = document.querySelector('.popup_type_place-preview');
-const cardPreviewPhoto = cardPreviewPopup.querySelector('.popup__preview-photo');
-const cardPreviewCap = cardPreviewPopup.querySelector('.popup__preview-cap');
-
-const profileForm = document.forms['edit-profile'];
-const nameInput = profileForm.querySelector('.form__input_type_profile-name');
-const jobInput = profileForm.querySelector('.form__input_type_profile-job');
-
-const cardForm = document.forms['add-place'];
-const cardNameInput = cardForm.querySelector('.form__input_type_place-name');
-const cardLinkInput = cardForm.querySelector('.form__input_type_place-link');
-
-const cardsList = document.querySelector('.places__list');
-
-const footer = document.querySelector('.footer');
-
-const cardTemplate = document.querySelector('#card').content;
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    alt: 'Горный хребет: заснеженный на переднем плане и покрытый зеленью на заднем плане.'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    alt: 'Заснеженное озеро, окруженное халмами и деревьми.'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    alt: 'Каскад домов панельного плана спального района в вечернее время.'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    alt: 'Приближенный вид на подножье с редко растущей зеленью на переднем плане и заснеженной горной вершиной на заднем плане.'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    alt: 'Вид на железную дорогу, уходящую за горзинт, окруженную лесом.'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    alt: 'Вид спереди на скалистый берег заледеневшего озера Байкал.'
-  }
-];
-
-nameInput.value = nameProfile.textContent;
-jobInput.value = jobProfile.textContent;
-
-
 // handle popups
 
-const closePopupWithEsc = event => {
-  if (event.key === 'Escape') {
-    closePopup(event.currentTarget);
-  }
-}
-
 const openPopup = popup => {
+  const popupContainer = popup.querySelector('.popup__container');
+
   popup.classList.add('popup_opened');
 
-  if (popup.querySelector('.popup__container').classList.contains('shrink')) {
-    popup.querySelector('.popup__container').classList.remove('shrink');
-  }
+  popupContainer.classList.remove('shrink');
+  popupContainer.classList.add('grow');
 
-  popup.querySelector('.popup__container').classList.add('grow');
-
-  const changeFocus = () => {
-    popup.focus();
-  }
-
-  setTimeout(changeFocus, 200);
-
-  popup.addEventListener('keydown', closePopupWithEsc);
+  document.addEventListener('keydown', event => {
+    closePopupWithEsc(event, popup)
+  });
 }
 
 const closePopup = popup => {
+  const popupContainer = popup.querySelector('.popup__container');
+
   popup.classList.remove('popup_opened');
 
-  if (popup.querySelector('.popup__container').classList.contains('grow')) {
-    popup.querySelector('.popup__container').classList.remove('grow');
+  popupContainer.classList.remove('grow');
+  popupContainer.classList.add('shrink');
+
+  document.removeEventListener('keydown', event => {
+    closePopupWithEsc(event, popup)
+  });
+}
+
+const closePopupWithEsc = (event, popup) => {
+  if (event.key === 'Escape') {
+    closePopup(popup);
   }
-
-  popup.querySelector('.popup__container').classList.add('shrink');
-
-  popup.removeEventListener('keydown', closePopupWithEsc);
 }
 
 
@@ -115,10 +47,11 @@ const handleProfileForm = event => {
 const handleCardForm = event => {
   event.preventDefault();
 
-  const card = {};
-  card.name = cardNameInput.value;
-  card.link = cardLinkInput.value;
-  card.alt = cardNameInput.value;
+  const card = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+    alt: cardNameInput.value
+  };
 
   cardsList.prepend(createCard(card));
 
@@ -145,11 +78,8 @@ enableValidation(validationOptions);
 // handle cards
 
 const deleteCard = event => {
-  if (event.target.closest('li').classList.contains('grow')) {
-    event.target.closest('li').classList.remove('grow');
-  }
-
-  event.target.closest('li').classList.add('shrink');
+  event.target.closest('.places__place').classList.remove('grow');
+  event.target.closest('.places__place').classList.add('shrink');
 
   const removeCard = () => {
     event.target.closest('li').remove();
@@ -171,17 +101,9 @@ const createCard = item => {
   const likeCardButton = cardElement.querySelector('.places__like-button');
   const deleteCardButton = cardElement.querySelector('.places__trash-button');
 
-
   cardName.textContent = item.name;
   cardPhoto.src = item.link;
   cardPhoto.alt = item.alt;
-
-  if (card.closest('li').classList.contains('shrink')) {
-    card.closest('li').classList.remove('shrink');
-  }
-
-  card.closest('li').classList.add('grow');
-
 
   deleteCardButton.addEventListener('click', deleteCard);
 
@@ -201,24 +123,20 @@ const createCard = item => {
 
 // load initial cards
 
-initialCards.slice().forEach(item => cardsList.append(createCard(item)));
+initialCards.forEach(item => cardsList.append(createCard(item)));
 
 
 // add event listeners
 
 popups.forEach(popup => {
   popup.addEventListener('mousedown', event => {
-    if (event.target === event.currentTarget) {
-      closePopup(popup);
-    } else if (event.target.classList.contains('popup__close-button')) {
+    if (event.target === event.currentTarget || event.target.classList.contains('popup__close-button')) {
       closePopup(popup);
     }
   })
 })
 
 profileButton.addEventListener('click', () => {
-  const inputList = Array.from(profileForm.querySelectorAll('.form__input'));
-
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 

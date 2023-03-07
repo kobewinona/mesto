@@ -8,6 +8,9 @@
   <title>Место</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="stylesheet" href="pages/index.css">
+  <script defer src="scripts/constants.js"></script>
+  <script defer src="scripts/validate.js"></script>
+  <script defer src="scripts/index.js"></script>
 </head>
 <body class="page">
   <header class="header">
@@ -31,18 +34,17 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Климкин Дима</p>
   </footer>
-  <section class="popup popup_type_edit-profile" tabindex="-1">
+  <section class="popup popup_type_edit-profile">
     <div class="popup__container popup__container_type_form">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form form_type_edit-profile" method="get" name="edit-profile" novalidate>
+      <form class="form form_type_edit-profile" name="edit-profile" novalidate>
         <input
           id="profile-name-input"
           class="form__input form__input_type_profile-name"
           aria-label="Имя."
           type="text"
           name="profile-name"
-          value=""
           placeholder="Имя"
           minlength="2"
           maxlength="40"
@@ -55,7 +57,6 @@
           aria-label="Деятельность."
           type="text"
           name="profile-job"
-          value=""
           placeholder="Описание"
           minlength="2"
           maxlength="200"
@@ -72,18 +73,17 @@
       </form>
     </div>
   </section>
-  <section class="popup popup_type_add-place" tabindex="-1">
+  <section class="popup popup_type_add-place">
     <div class="popup__container popup__container_type_form">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="form form_type_add-place" method="get" name="add-place" novalidate>
+      <form class="form form_type_add-place" name="add-place" novalidate>
         <input
           id="place-name-input"
           class="form__input form__input_type_place-name"
           aria-label="Название."
           type="text"
           name="place-name"
-          value=""
           placeholder="Название"
           minlength="2"
           maxlength="30"
@@ -96,7 +96,6 @@
           aria-label="Ссылка на картинку."
           type="url"
           name="place-photo-link"
-          value=""
           placeholder="Ссылка на картинку"
           required
         >
@@ -111,14 +110,14 @@
       </form>
     </div>
   </section>
-  <section class="popup popup_type_place-preview" aria-label="Окно просмотра фотографии." tabindex="-1">
-    <div class="popup__container popup__container_preview">
+  <section class="popup popup_type_place-preview" aria-label="Окно просмотра фотографии.">
+    <div class="popup__container popup__container_type_preview">
       <button class="popup__close-button" type="button" aria-label="Закрыть."></button>
       <figure class="popup__preview-element">
         <img
           class="popup__preview-photo"
-          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-          alt="Горный хребет: заснеженный на переднем плане и покрытый зеленью на заднем плане."
+          src="#"
+          alt=""
         >
         <figcaption>
           <p class="popup__preview-cap"></p>
@@ -128,12 +127,12 @@
   </section>
   <template id="card">
     <li>
-      <figure class="places__place">
+      <figure class="places__place grow">
         <button class="places__trash-button" type="button" aria-label="Удалить."></button>
         <img
           class="places__place-photo"
-          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-          alt = 'Горный хребет: заснеженный на переднем плане и покрытый зеленью на заднем плане.'
+          src="#"
+          alt=""
         >
         <figcaption class="places__place-caption">
           <p class="places__place-name"></p>
@@ -142,7 +141,5 @@
       </figure>
     </li>
   </template>
-  <script src="scripts/validate.js"></script>
-  <script src="scripts/index.js"></script>
 </body>
 </html>
