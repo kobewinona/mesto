@@ -1,5 +1,11 @@
 // handle popups
 
+const closePopupWithEsc = event => {
+  if (event.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+}
+
 const openPopup = popup => {
   const popupContainer = popup.querySelector('.popup__container');
 
@@ -8,9 +14,7 @@ const openPopup = popup => {
   popupContainer.classList.remove('shrink');
   popupContainer.classList.add('grow');
 
-  document.addEventListener('keydown', event => {
-    closePopupWithEsc(event, popup)
-  });
+  document.addEventListener('keydown', closePopupWithEsc);
 }
 
 const closePopup = popup => {
@@ -21,15 +25,7 @@ const closePopup = popup => {
   popupContainer.classList.remove('grow');
   popupContainer.classList.add('shrink');
 
-  document.removeEventListener('keydown', event => {
-    closePopupWithEsc(event, popup)
-  });
-}
-
-const closePopupWithEsc = (event, popup) => {
-  if (event.key === 'Escape') {
-    closePopup(popup);
-  }
+  document.removeEventListener('keydown', closePopupWithEsc);
 }
 
 
